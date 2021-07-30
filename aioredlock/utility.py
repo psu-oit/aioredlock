@@ -1,3 +1,4 @@
+from aioredlock.aioredlock.sentinel import Sentinel
 import re
 
 REDIS_DSN_PATTERN = r"(rediss?:\/\/)(:.+@)?(.*)"
@@ -12,4 +13,6 @@ def clean_password(details, cast=str):
         details = [clean_password(x, cast=type(x)) for x in details]
     elif isinstance(details, str) and re.match(REDIS_DSN_PATTERN, details):
         details = re.sub(REDIS_DSN_PATTERN, "\\1:*******@\\3", details)
+    elif isinstance(details, Sentinel):
+        return repr(details)
     return cast(details)

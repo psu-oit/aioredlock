@@ -113,3 +113,10 @@ class Sentinel:
         '''
         sentinel = await self.get_sentinel()
         return await sentinel.master_for(self.master)
+
+    def __repr__(self) -> str:
+        return "Sentinel({connection}, master={master}, password='*******', db={db})".format(
+            connection=self.connection,
+            master=self.master,
+            db=self.db
+        )
