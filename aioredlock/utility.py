@@ -1,4 +1,4 @@
-from aioredlock.aioredlock.sentinel import Sentinel
+from aioredlock.sentinel import Sentinel
 import re
 
 REDIS_DSN_PATTERN = r"(rediss?:\/\/)(:.+@)?(.*)"
