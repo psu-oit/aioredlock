@@ -118,5 +118,5 @@ class Sentinel:
         return "Sentinel({connection}, master={master}, password='*******', db={db})".format(
             connection=self.connection,
             master=self.master,
-            db=self.kwargs['db']
+            db=self.redis_kwargs['db']
         )
